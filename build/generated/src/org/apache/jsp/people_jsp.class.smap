@@ -1,0 +1,22 @@
+SMAP
+people_jsp.java
+JSP
+*S JSP
+*F
++ 0 people.jsp
+people.jsp
++ 1 header.jsp
+header.jsp
++ 2 footer.jsp
+footer.jsp
+*L
+5,5:50
+5#1,4:54
+8:57
+10,9:59
+18,57:68
+75:125,3
+76,29:128
+9#0,31:156
+5#2,41:186
+*E

@@ -1,0 +1,14 @@
+SMAP
+MyTeam_jsp.java
+JSP
+*S JSP
+*F
++ 0 MyTeam.jsp
+MyTeam.jsp
++ 1 header_home.jsp
+header_home.jsp
+*L
+1,2:49
+5#1,169:50
+2#0,70:218
+*E
