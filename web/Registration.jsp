@@ -1,11 +1,3 @@
-
-
-<%-- 
-    Document   : index
-    Created on : 22 Feb, 2019, 6:56:56 PM
-    Author     : Alok Hirwe
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +15,9 @@
         }
         
         body{
-            background-image: url("images/registerbg.jpg");
+         background-image: url("https://cdn.pixabay.com/photo/2014/06/11/17/00/cook-366875__340.jpg");
+       background-repeat: no-repeat;
+       background-size:cover;
         }
 
     </style>
@@ -38,7 +32,7 @@
             if(var=="1")
             {
         %>
-        <div id='result' class="w3-green w3-center w3-padding-16 "  >Registered Successfully</br><strong>Login to continue</strong></div>
+        <div id='result' class="w3-green w3-center w3-padding-16 " >Registered Successfully</br><strong>Login to continue</strong></div>
                     
         <% 
             } 
@@ -46,15 +40,12 @@
             if(var=="2")
             {
         %>
-                <div id='result' class="w3-red w3-center w3-padding-16 "  >Username Already Registered</br><strong>Check Login Details</strong></div>
+                <div id='result' class="w3-red w3-center w3-padding-16 " >Username Already Registered</br><strong>Check Login Details</strong></div>
         <%    
             }
         %>
-        
-
-        <!-- First Grid -->
-      
-            <div id="register" class=" w3-center" style="position:absolute;display: inline-block; width: 520px; background-color: yellow; margin-left: -250px;margin-bottom: 190px; margin-right: 0px; left: 50%;">
+            
+            <div id="register" class=" w3-center" style="position:absolute;display: inline-block; width: 520px; background-color: #50e598; margin-left: -250px;margin-bottom: 190px; margin-right: 0px; left: 50%;">
                 
                 <div class="form-container" style="">
                     <form  action="Register" class="" style="width:500px;padding: 20px; background-color: transparent;background-image: url('https://www.transparenttextures.com/patterns/checkered-pattern.png');" method="post">

@@ -8,7 +8,7 @@
             text-align: center;
         }
         body{
-            background-image: url("images/loginbackground.jpg");
+            background-image: url("https://cdn.pixabay.com/photo/2014/06/11/17/00/cook-366875__340.jpg");
             background-size: 100%;
             
         }
@@ -41,7 +41,7 @@
         <!-- Main code starts from below -->
         
         <%@include file="header_home.jsp" %>
-        <div id="myFormlogin" class="w3-center" style="position:absolute;display: inline-block; width: 520px; margin-left: -260px; background-color: skyblue;margin-bottom: 190px; left: 50%;">
+        <div id="myFormlogin" class="w3-center" style="position:absolute;display: inline-block; width: 520px; margin-left: -260px; background-color:#50e598;margin-bottom: 190px; left: 50%;">
             <div class="form-container">
             <form action="Login" class="" method="post" style="width:500px ;padding: 20px; background-color: transparent;background-image: url('https://www.transparenttextures.com/patterns/checkered-pattern.png');">
                 <h1 style="color:white;"><strong>LOGIN</strong></h1><hr>

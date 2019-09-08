@@ -1,9 +1,3 @@
-<%-- 
-    Document   : people
-    Created on : 7 Mar, 2019, 8:55:14 PM
-    Author     : Alok Hirwe
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%@include file = "header_ngo.jsp" %> 
@@ -25,7 +19,7 @@
 
 <style>
     body{
-        background-image: url("images/GreyPolygons.jpg");
+        background-image: url("https://cdn.pixabay.com/photo/2014/06/11/17/00/cook-366875__340.jpg");
         background-size: 110%;
     }
 </style>
