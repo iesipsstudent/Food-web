@@ -17,11 +17,6 @@ import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;   
 
 
-
-/**
- *
- * @author Alok Hirwe
- */
 public class Feed_info extends HttpServlet {
 
  @Override
