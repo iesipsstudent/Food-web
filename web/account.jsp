@@ -1,3 +1,4 @@
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%@include file = "header_ngo.jsp" %> 
@@ -19,7 +20,7 @@
 
 <style>
     body{
-        background-image: url("https://cdn.pixabay.com/photo/2014/06/11/17/00/cook-366875__340.jpg");
+        background-image: url("images/GreyPolygons.jpg");
         background-size: 110%;
     }
 </style>

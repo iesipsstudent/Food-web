@@ -1,5 +1,4 @@
 
-
 <%@page import="java.time.format.DateTimeFormatter" %>
 <%@page import =" java.time.LocalDateTime" %> 
 <%@page import =" java.time.LocalDate" %> 
@@ -10,11 +9,6 @@
 <%@page import="java.sql.Statement"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file = "header_ngo.jsp" %>
-
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css?family=Baloo+Chettan" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Teko" rel="stylesheet">
 
 <style>
     .container {
@@ -65,26 +59,8 @@
     
     body{
         margin-top:100px;
-        background-image: url("https://cdn.pixabay.com/photo/2014/06/11/17/00/cook-366875__340.jpg");
-       background-repeat: no-repeat;
-       background-size:cover;
+        background-image: url("images/crop.jpg");
     }
-    
-    table{
-        float: left;
-        width: 40%;
-        margin-left: 0px;
-        color: white;
-        /*border-color:#e6b5a6;*/
-        border-style:solid;
-        margin-top:20px;
-        margin-bottom:20px;
-        animation: mymove 5s infinite;
-    }
-    
-    @keyframes mymove {
-  50% {border-color: lightblue;}
-}
 </style>
 <div class="w3-row"  >
 <!--    <img src="images/Deep3.png" alt="boat" style="background-image: url(images/Deep3.png); width:100%;min-height:350px;max-height:600px;">
@@ -113,8 +89,6 @@
                     { 
                 %>
                     <div id='result' class="w3-green w3-xlarge" style="text-align:center;" >Request Locked SuccessFully......!</div>
-                    <br>
-                    <br>
                 <%
                     }
                 %>
@@ -123,8 +97,6 @@
                     { 
                 %>
                     <div id='result' class="w3-red w3-xlarge" style="text-align:center;" >Request Rejected.......!</div>
-                    <br>
-                    <br>
                 <%  
                     }
                 %>
@@ -181,29 +153,30 @@
                     <ul class="w3-ul w3-card-4 w3-white" style=" background-color: #290007 ; background-image: url('https://www.transparenttextures.com/patterns/classy-fabric.png');">
                         <li class="w3-padding-16">
                             <%    if (a[3].equals("1")) { %>
-                            <span class="w3-right">&#10003</span>
+                        <span class="w3-right w3-opacity"><b>&#10003;</b></span>
                         <%
                         }
                         %>
                         <input type="hidden" name="req_id" value="<%= a[1]%>">
                         <img src="images/avatar1.png" class="w3-left w3-circle w3-margin-right" style="width:35px">
-                        <span class="" style=" font-family: 'Teko', sans-serif; font-size: 38px;"><%= rs.getString("account_name").substring(0,1).toUpperCase()+ rs.getString("account_name").substring(1)%> wants to donate.</span><br> <p>
+                        <span class="w3-xlarge" style=""><%= rs.getString("account_name").substring(0,1).toUpperCase()+ rs.getString("account_name").substring(1)%> wants to donate</span><br> <p>
                         <button name="b1" onclick="document.getElementById('info').style.display = 'block'" class="w3-button w3-black">View</button>&nbsp;
                         <form id="accepted" action="Notification_accepted" method="post">
                             <input type="hidden" name="req_id" value="<%= a[1]%>">
 
-                            <button name="b2" value="<%= a[1]%>" formaction="Notification_accepted"  
+                            <button name="b2" value="<%= a[1]%>" formaction="Notification_accepted" class="w3-button w3-green"  
                                     <%
                                         if (!a[2].equals("0") || a[2].equals(user_id)) 
                                         {
                                     %> 
-                                    class="w3-button" disabled style=" opacity: 0.7; background-color: grey; color: lightgrey;" >Request Locked 
+                                    disabled >Request Locked 
                                     <%
                                         } 
-                                       else 
+                                        
+                                        else 
                                         {
                                     %>
-                                     class="w3-button w3-green">Accept
+                                    >Accept
                                     <%
                                         }
                                     %>
@@ -215,7 +188,7 @@
                             %>
                                 <button name="b3" value="<%= a[1]%>" formaction="Notification_rejected" class="w3-button w3-red">Reject</button>
                         </p>
-                                <!--<span style="color:red;" >#Accepted by you</span>-->
+                                <span style="color:red;" >#Accepted by you</span>
                             <%
                                 } 
                             %>
@@ -243,8 +216,8 @@
     <div id="info" class="w3-modal" style="display: block;">
         <div class="w3-modal-content w3-animate-zoom">
             <div class="w3-container w3-black w3-display-container">
-                <span onclick="document.getElementById('info').style.display = 'none'" class="w3-button w3-display-topright w3-large" style='margin-top:5px; margin-right: 5px;'><i class="fas fa-times-circle"></i></span>
-                <h1 style="font-family: 'Baloo Chettan', cursive;"><center>INFORMATION</center></h1>
+                <span onclick="document.getElementById('info').style.display = 'none'" class="w3-button w3-display-topright w3-large">x</span>
+                <h1>INFORMATION</h1>
             </div>
 
             <%     try {
@@ -258,140 +231,85 @@
 
             %>
 
-            <div class="w3-container" style=" background-color: #6b4e4d; background-image: url('https://www.transparenttextures.com/patterns/cubes.png');">
-                <table border="3" cellspacing="" style="">
+            <div class="w3-container">
+                <table border="0" cellspacing="20" >
                     <thead>
-<!--                        <tr>
+                        <tr>
                         <th></th>
                         <th></th>
                         <th></th>
                         <th></th>
 
-                        </tr>-->
+                        </tr>
                     </thead>
                     <tbody>
-                        
                         <tr>
-                            <td>
-                                <b>Type</b>
-                            </td>
-                            
-                            <td>
-                                <%= rs1.getString("type").substring(0,1).toUpperCase()+ rs1.getString("type").substring(1)%>
-                            </td>
-                            
-                        </tr>
-                        
-                        <tr>
-                            <td>
-                                <b>Quantity</b>
-                            </td>
-                        
-                            <td>
-                                <%= rs1.getString("quantity")%>
-                            </td>
+                        <td><b>Type</b></td>
+                        <td><%= rs1.getString("type").toUpperCase()%></td>
+                        <td><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Name of the donor</b></td>
+                        <td><%= rs1.getString("account_name").toUpperCase()%></td>
                         </tr>
                         <tr>
-                            <td>
-                                <b>Contact Provide</b>
-                            </td>
-                        
-                            <td>
-                                <%= rs1.getString("contact")%>
-                            </td>
-                            
+                        <td><b>Quantity</b></td>
+                        <td><%= rs1.getString("quantity").toUpperCase()%></td>
+                        <td><b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Contact</b></td>
+                        <td><%= rs1.getString("mo_number").toUpperCase()%></</td>
                         </tr>
-                        
                         <tr>
-                            
-                        
-                            
+                        <td><b>Contact</b></td>
+                        <td><%= rs1.getString("contact")%></td>
+                        <td><b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Email</b></td>
+                        <td><%= rs1.getString("email").toUpperCase()%></</td>
                         </tr>
-                        
                         <tr>
-                            <td>
-                                <b>Location</b>
-                            </td>
-                            
-                            <td>
-                                <%= rs1.getString("location").substring(0,1).toUpperCase()+ rs1.getString("location").substring(1)%>
-                            </td>
-                        
-                            
+                        <td><b>Location</b></td>
+                        <td><%= rs1.getString("location").toUpperCase()%></td>
+                        <td><b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; City</b></td>
+                        <td><%= rs1.getString("City").toUpperCase()%></</td>
                         </tr>
-                        
+                        <tr>
+                        <td><b></b></td>
+                        <td></td>
+                        <td><b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Address</b></td>
+                        <td><%= rs1.getString("Address").toUpperCase()%></td>
+                        </tr>
                     </tbody>
                 </table>
-                            
-                            <table border="3" style="margin-left: 20%;">
-                                <tr>
-                                    <td>
-                                <b> Donor</b>
-                            </td>
-                            
-                            <td>
-                                <%= rs1.getString("account_name").substring(0,1).toUpperCase()+ rs1.getString("account_name").substring(1)%>
-                            </td>
-                                </tr>
-                                
-                                <tr>
-                                    
-                                 </tr>
-                                     
-                                 <tr>
-                                     <td>
-                                <b> Email</b>
-                            </td>
-                        
-                            <td>
-                                <%= rs1.getString("email").toLowerCase()%>
-                            </td>
-                                 </tr>
-                                 <td>
-                                <b>Contact</b>
-                            </td>
-                        
-                            <td>
-                                <%= rs1.getString("mo_number")%>
-                            </td>
-                                 <tr>
-                                     
-                                     <td>
-                                <b>City</b>
-                            </td>
-                        
-                            <td>
-                                <%= rs1.getString("City").substring(0,1).toUpperCase()+ rs1.getString("city").substring(1)%>
-                            </td>
-                                 </tr>
-                                 
-                                 <tr>
-                                         
-                                                                 <td>
-                                <b>Address</b>
-                            </td>
-                            
-                            <td>
-                                <%= rs1.getString("Address").substring(0,1).toUpperCase()+ rs1.getString("Address").substring(1)%>
-                            </td>
-                                 </tr>
-                            </table>
-             </div>
-                        
+
+
+<!--                <h5>type<b><%= rs1.getString("type")%></b></h5>
+<h5>Quantity<b><%= rs1.getString("quantity")%></b></h5>
+<h5>contact<b><%= rs1.getString("contact")%></b></h5>
+<h5>Location<b><%= rs1.getString("location")%></b></h5>
+                -->
+            </div>
         </div>
     </div> 
 
-    <%              
-                        }
-                    
-                    } 
-                catch (SQLException e) {
-                    System.out.println(e);
-                }
+    <%          }
+
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
 
             System.out.println(check);
+
         }
+
+
     %>
+
+
+    <!--    <div class="w3-card container">
+            <div class="text-block">
+                <p> Name of donor: kuldeep</p>
+                <p> Type of food : Junk</p>
+                <p> Quanity : 10</p>
+                <p>location : Bhawarkua</p>
+    
+            </div>
+    
+        </div>-->
 
 </div>
 <script>
